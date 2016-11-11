@@ -3,6 +3,34 @@
     Movies
     <a href="/movies/new" class="btn btn-lg btn-success">New Movie</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => "collapse", :id => "movies_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+    <%= f.label :description_cont, "Description contains" %>
+    <%= f.text_field :description_cont, :class => "form-control", :placeholder => "Description contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :title_cont, "Title contains" %>
+    <%= f.text_field :title_cont, :class => "form-control", :placeholder => "Title contains" %>
+  </div>
+
+        <div class="form-group">
+      <%= f.label :director_name_cont, "Director name contains" %>
+      <%= f.text_field :director_name_cont, :class => "form-control", :placeholder => "Director name contains" %>
+    </div>
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/movies" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#movies_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 <div class="row">
